@@ -14,38 +14,47 @@ var MongoClient = require('mongodb').MongoClient
 
 
 express.static.mime.define({
-   'application/vnd.unity': ['unity3d'],
- });
+	'application/vnd.unity': ['unity3d'],
+});
 
 
 // DATBASE CRUMS ======================================
 
 MongoClient.connect('mongodb://stain_db_user:bluecakes@ds031611.mongolab.com:31611/stain_db', function(err, db) {
-    if (err) throw err;
-    console.log("Connected to Database");
-    _db = db //this is our global database object
+	if (err) throw err;
+	console.log("Connected to Database");
+	_db = db //this is our global database object
 })
-
+var clients = []
 // THE SOCKET POCKET -- WELCOME ======================================
 
-io.on('connection', function(socket){
-  console.log('a user connected');
+io.on('connection', function(socket) {
+
+	console.log('a user connected');
+
+	io.on('connection', function(socket) { // do all the socket stuff
+
+		clients.push(socket);
+		if(clients.length == 1){
+			io.emit('full', 'emit')
+		}
+	});
+
+
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(8080, function() {
+	console.log('listening on *:3000');
 });
 
 
 
 app.use(bodyParser.json()) // get information from html forms
 app.use(bodyParser.urlencoded({
-    extended: true
+	extended: true
 }))
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'))
-
-
 
 
 
@@ -53,5 +62,5 @@ app.use(express.static(__dirname + '/public'))
 require('./app/routes.js')(app) // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
-app.listen(port) 
+// app.listen(port)
 console.log('The magic happens on port ' + port)

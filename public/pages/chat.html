@@ -16,13 +16,25 @@
   <body>
 
 <script>
-  var socket = io.connect('http://localhost:3000');
+  var socket = io.connect();
+
+  var socket = io();
+
+  socket.on('full', function(msg) {
+    alert('full' + msg);
+  })
+
+  function sendMessage() {
+    socket.emit('chat message', 'AAAAGGHHH');
+  }
+
+
 </script>
 
 
     <ul id="messages"></ul>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+      <input id="m" autocomplete="off" onclick="sendMessage()" /><button>Send</button>
     </form>
   </body>
 </html>
