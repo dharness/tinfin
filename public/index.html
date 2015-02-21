@@ -1,0 +1,39 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="myapp">
+  <head>
+    
+    <!-- load angular and angular route via CDN -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js?v=2.1.2"></script>
+    <script src="//www.parsecdn.com/js/parse-1.3.3.min.js"></script>
+    
+
+    <!-- Styles -->
+
+
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Basic Angular App -->
+    <script src="app.js"></script>
+
+    <!-- Controllers -->
+    <script src="controllers/about.js"></script>
+    <script src="controllers/gameplay.js"></script>
+    <script src="controllers/login.js"></script>
+
+  </head>
+  
+<body ng-controller="loginController">
+    <!-- this is where content will be injected -->
+    <div class="page {{ pageClass }}" ng-view ></div>
+</body>
+
+
+</html>

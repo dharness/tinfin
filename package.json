@@ -1,0 +1,16 @@
+{
+  "name": "Stain_DB",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.4.2",
+    "ejs": "^2.2.4",
+    "express": "~4.0.0",
+    "jade": "^1.9.2",
+    "method-override": "~2.0.2",
+    "mongodb": "*",
+    "mongoose": "~3.8.0",
+    "morgan": "~1.0.0",
+    "path": "*",
+    "socket.io": "^1.3.4"
+  }
+}
