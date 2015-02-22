@@ -81,7 +81,7 @@ function getBitches() { // displays entire contents of database
 
 		for (var i = 0; i < bitches.length; i++) {
 			if (bitches[i].isPrize == 'true') {
-				addCard(bitches[i].username, 'Dylan rules', bitches[i].bidCount);
+				addCard(bitches[i].username, 'Dylan rules', bitches[i].bidCount, bitches[i].picture);
 			}
 		}
 
