@@ -47,6 +47,11 @@ window.session.addClient(socket);
 socket.on('click', function(msg) {
 	$('#enemyScore').html("<h2>" + (++enemyScore) + "<\/h2");
 	moveLeft($('#slider'));
+
+	if(enemyScore >= 100){
+	alert('You Lose');
+	window.location.assign('/')
+}
 });
 
 socket.on('findSelf', function(msg) {
@@ -58,6 +63,11 @@ function sendMessage() {
 	$('#myScore').html("<h2>" + s + "<\/h2");
 	moveRight($('#slider'));
 	socket.emit('click', $('input').val());
+
+	if(myScore >= 100){
+	alert('You Win');
+	window.location.assign('/')
+}
 }
 
 function upload() { // uploads the session's current profile object
