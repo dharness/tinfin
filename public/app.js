@@ -1,5 +1,12 @@
  var myapp = angular.module('myapp', ['ngRoute', 'ngAnimate']);
  currentUser = null;
+ profile = {
+        "username": "",
+        "picture": "",
+        "isPrize": "",
+        "gender": "",
+        "bidCount": ""
+    };
 
  // configure our routes
  myapp.config(function($routeProvider) {
