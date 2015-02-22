@@ -1,4 +1,6 @@
 var _location;
+var enemyScore = 0;
+var myScore = 0;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
 
 	$scope.goTo = function(path) {
@@ -23,18 +25,30 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 			getBitches();
 		}
 	}
-
 });
 
 socket = io.connect();
-
 var socket = io();
 
-socket.on('full', function(msg) {
-	console.log('OK GO')
-})
+window.onbeforeunload = function() {
+	socket.emit('userLeaving', $('input').val());
+}
+
+window.session.addClient(socket);
+
+// listen for a click signal and update the score
+socket.on('click', function(msg) {
+	$('#enemyScore').html(++enemyScore);
+	moveLeft($('#slider'));
+});
+
+socket.on('findSelf', function(msg) {
+	window.session.id = msg;
+});
 
 function sendMessage() {
+	$('#myScore').html(++myScore);
+	moveRight($('#slider'));
 	socket.emit('click', $('input').val());
 }
 
@@ -65,4 +79,17 @@ function placeBid(prizeUsername) {
 	}).done(function(response) {
 		console.log(response);
 	});
+}
+
+
+function moveLeft(obj) {
+	obj.animate({
+		'marginLeft': "-=10px" //moves left
+	}, "fast");
+}
+
+function moveRight(obj) {
+	obj.animate({
+		'marginLeft': "+=10px" //moves right
+	}, "fast");
 }

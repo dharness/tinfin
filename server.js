@@ -26,15 +26,20 @@ MongoClient.connect('mongodb://master:master@ds043329.mongolab.com:43329/tinderr
 	_db = db //this is our global database object
 })
 var clients = []
-	// THE SOCKET POCKET -- WELCOME ======================================
+
+// THE SOCKET POCKET -- WELCOME ======================================
 
 io.on('connection', function(socket) {
 
 	console.log('a user connected');
 
-
 	socket.on('click', function(msg) {
 		console.log(msg);
+		socket.broadcast.emit('click', 'emit');
+	});
+
+	socket.on('userLeaving', function(msg) {
+		console.log(msg + ' has left');
 	});
 
 	clients.push(socket);
