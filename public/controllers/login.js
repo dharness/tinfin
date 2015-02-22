@@ -67,7 +67,7 @@ function sendMessage() {
 
 	if(myScore >= 100){
 	alert('You Win');
-	window.location.assign('/')
+	window.location.assign('/#/mur')
 }
 }
 

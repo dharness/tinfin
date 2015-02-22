@@ -63,6 +63,10 @@ myapp.config(function($routeProvider) {
       // photo upload
      .when('/upload', {
          templateUrl: 'pages/upload.html'
+     })     
+      // photo upload
+     .when('/mur', {
+         templateUrl: 'pages/MUR.html'
      })
 
  });
