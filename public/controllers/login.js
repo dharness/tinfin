@@ -1,9 +1,13 @@
 var _location;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
-	_location = $location;
-	$scope.goTo = function(path, loc) {
-		window[loc] = path;
-		$location.path('/' + path);
+location.path('/' + path);
+
+	$scope.goTo = function(path) {
+		if (path == 'gameplay') {
+			window.location.assign('clickme/clickmebitch.html');
+		} else {
+			$location.path('/' + path);	
+		}		
 	}
 
 });
