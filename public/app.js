@@ -1,4 +1,12 @@
 var myapp = angular.module('myapp', ['ngRoute', 'ngAnimate']);
+profile = {
+    "username": "",
+    "picture": "",
+    "isPrize": "",
+    "gender": "",
+    "bidCount": "0"
+};
+bitches = null;
 
 // configure our routes
 myapp.config(function($routeProvider) {
@@ -53,6 +61,10 @@ myapp.config(function($routeProvider) {
       // waiting to join room
      .when('/select', {
          templateUrl: 'pages/select.html'
+     })
+      // waiting to join room
+     .when('/upload', {
+         templateUrl: 'pages/upload.html'
      })
 
  });

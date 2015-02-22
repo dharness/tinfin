@@ -20,7 +20,7 @@ express.static.mime.define({
 
 // DATBASE CRUMS ======================================
 
-MongoClient.connect('mongodb://stain_db_user:bluecakes@ds031611.mongolab.com:31611/stain_db', function(err, db) {
+MongoClient.connect('mongodb://master:master@ds043329.mongolab.com:43329/tinderroyale', function(err, db) {
 	if (err) throw err;
 	console.log("Connected to Database");
 	_db = db //this is our global database object

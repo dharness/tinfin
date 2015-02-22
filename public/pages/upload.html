@@ -1,0 +1,44 @@
+<html id='doesntwork'>
+<head>
+
+<script type="text/javascript">
+tinypic_layout = 'wide';
+tinypic_type = 'images';
+tinypic_links = 'url';
+tinypic_language = 'en';
+tinypic_search = 'false';
+tinypic_autoload = true;
+
+</script>
+<script type="text/javascript">
+function init() {
+	hideTinypicPlugin();
+	document.getElementById("tinyurl").onclick = btnasdf;
+}
+
+window.btnasdf = function() {
+	showTinypicPlugin();
+	
+	// var strVar="";
+	// strVar += "<form>";
+	// strVar += "	Please copy the above URL into the text box: <input type = \"text\" name = \"url\">";
+	// strVar += "		<button id = \"rumples\">Continue<\/button>";
+	// strVar += "	<\/form>";
+
+		document.getElementById("buttonsandstuff").innerHTML=strVar;
+}
+
+initCasey();
+
+</script>
+</head>
+
+<body onload = "init()">
+	<div id = "buttonsandstuff">
+	<button id = "tinyurl" onclick="window.btnasdf()">Upload Photo</button>
+	<div id="url"></div>
+	</div>
+<input type = "text" id='cynthia'/>
+	<button id = "rumples">Continue</button>
+</body>
+</html>

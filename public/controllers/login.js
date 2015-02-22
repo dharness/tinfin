@@ -6,16 +6,40 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 	$scope.goTo = function(path, type) {
 
 		if (type == 'p') {
-			$http.post('/addWoman', {username:'hellen'}).
-			success(function(data, status, headers, config) {
-			});
+			$http.post('/addWoman', {
+				username: 'hellen'
+			}).
+			success(function(data, status, headers, config) {});
 		}
 
 		if (path == 'gameplay') {
 			window.location.assign('clickme/clickmebitch.html');
-		} else {
-			$location.path('/' + path);
 		}
+	}
+
+
+
+	$scope.setIsPrize = function(prize) { // prize is either true or false	
+		profile.isPrize = prize;
+
+		console.log(profile);
+	}
+
+	$scope.setGender = function(genderType) {
+		profile.gender = genderType;
+
+		console.log(profile);
+
+		// the following code should be moved to whichever option is called last
+		if (profile.isPrize == "true") {
+			upload();
+		} else {
+			getBitches();
+		}
+
+
+
+		console.log(bitches);
 	}
 });
 
@@ -44,6 +68,45 @@ function sendMessage() {
 	socket.emit('click', $('input').val());
 }
 
+<< << << < HEAD === === =
+	function upload() { // uploads the session's current profile object
+		$.ajax({
+			type: 'POST',
+			data: profile,
+			url: '/upload'
+		}).done(function(response) {
+			console.log(response);
+		});
+}
+
+function getBitches() { // displays entire contents of database
+	$.ajax({
+		type: 'GET',
+		url: '/database'
+	}).done(function(response) {
+		console.log(response);
+		bitches = response;
+	});
+}
+
+function placeBid(prizeUsername) {
+	var sendData = {
+		username: prizeUsername
+	};
+	$.ajax({
+		type: 'POST',
+		data: sendData,
+		url: '/placeBid'
+	}).done(function(response) {
+		console.log(response);
+		if (parseInt(response.bidCount) == 2) {
+			// start a game
+		}
+	});
+}
+
+>>> >>> > d42066c000c2dfebc61f8549ac1c321108970785
+
 function moveLeft(obj) {
 	obj.animate({
 		'marginLeft': "-=10px" //moves left
@@ -54,4 +117,24 @@ function moveRight(obj) {
 	obj.animate({
 		'marginLeft': "+=10px" //moves right
 	}, "fast");
+}
+
+function caseyMoves() {
+	alert('ok')
+	_location.path('/gameplay')
+}
+
+function initCasey() {
+	var imgurl = "";
+	$('#rumples').on('click', function() {
+		if ($('#cynthia').val() != '') {
+			$('#doesntwork').html('')
+			window.location.assign("/")
+		} else {
+			alert('wise guy eh? fill out the shit')
+		}
+
+		// document.getElementById("buttonsandstuff").innerHTML=strVar;
+	})
+
 }
