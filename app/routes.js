@@ -30,13 +30,16 @@ module.exports = function(app) {
     	console.log("body is next...");
     	console.log(req.body);
   
-    	_db.collection('profiles').findOne({'username': req.body.username}, function(err, result) {
+    	_db.collection('profiles').findOne({'username': req.body.prizeUsername}, function(err, result) {
 			console.log(err);
 			console.log(result);
 			console.log(result.bidCount);
+			var parsedArray = JSON.parse(result.bidders);
+			parsedArray.push(req.body.compUsername);
 			if (result) {
-				_db.collection('profiles').update({'username': req.body.username},
-    									{ $set: { bidCount : 1 + parseInt(result.bidCount)} },
+				_db.collection('profiles').update({'username': req.body.prizeUsername},
+    									{ $set: { bidCount : 1 + parseInt(result.bidCount), 
+    											bidders: JSON.stringify(parsedArray)} },
 	    								function(err, result) {
 		    		console.log(err + " + " + result);
 					res.send(result);

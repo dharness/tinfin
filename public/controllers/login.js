@@ -14,12 +14,10 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 	$scope.setGender = function(genderType) {
 		profile.gender = genderType;
 		upload();
-		console.log(profile);
 	}
 
 
 	$scope.goTo = function(path, type) {
-
 		if (type == 'p') {
 			profile.isPrize = true;
 			profile.username = $("input#inputUser").val()
@@ -28,10 +26,8 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 			profile.username = $("input#inputUser").val()
 		}
 
-
 		$location.path('/' + path)
 	}
-
 
 });
 
@@ -92,9 +88,10 @@ function getBitches() { // displays entire contents of database
 	});
 }
 
-function placeBid(prizeUsername) {
+function placeBid(prizeUsername, compUsername) {
 	var sendData = {
-		username: prizeUsername
+		"prizeUsername": prizeUsername,
+		"compUsername": compUsername
 	};
 	$.ajax({
 		type: 'POST',
