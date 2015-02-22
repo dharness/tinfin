@@ -80,7 +80,7 @@ function getBitches() { // displays entire contents of database
 		bitches = response;
 
 		for (var i = 0; i < bitches.length; i++) {
-			if (bitches[i].isPrize == 'true') {
+			if (bitches[i].isPrize == 'true' && bitches[i].gender == profile.gender) { 
 				addCard(bitches[i].username, bitches[i].desc, bitches[i].bidCount, bitches[i].picture);
 			}
 		}
