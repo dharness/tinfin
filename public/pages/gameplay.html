@@ -1,24 +1,30 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Socket.IO chat</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
-  </head>
-  <body>
-    <div id="myScore">0</div>
-     <center> <img id="slider" src="images/dyl.jpg" style="position:relative;" width="100px" height="10px" class="img-responsive img-circle">
-    <div id="enemyScore">0</div>
-
-    <center><button class "btn-info btn-lg" onclick="sendMessage()"> WIN THE BITCH</button>
-
-  </body>
+	<head>
+		<title>Socket.IO chat</title>
+		<style>
+			* { margin: 0; padding: 0; box-sizing: border-box; }
+			body { font: 13px Helvetica, Arial; }
+			form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+			form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+			form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+			#messages { list-style-type: none; margin: 0; padding: 0; }
+			#messages li { padding: 5px 10px; }
+			#messages li:nth-child(odd) { background: #eee; }
+		</style>
+	</head>
+	<body>
+		<div class = "row">
+			<div class = "col-md-4">
+				<div id="myScore"><h2>0</h2></div>
+			</div>
+			<div class = "col-md-4">
+				<center> <img id="slider" src="images/dyl.jpg" style="position:relative;" width="100px" height="auto" class="img-responsive img-circle">
+			</div>
+			<div class = "col-md-4">
+				<div id="enemyScore"><h2>0</h2></div>
+			</div>
+		</div>
+		<center><h1><button class = "btn-info btn-lg" onclick="sendMessage()"> WIN THE BITCH</button><h1>
+	</body>
 </html>

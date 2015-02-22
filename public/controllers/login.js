@@ -54,7 +54,8 @@ socket.on('findSelf', function(msg) {
 });
 
 function sendMessage() {
-	$('#myScore').html(++myScore);
+	var s = ++myScore;
+	$('#myScore').html("<h2>" + s + "<\/h2");
 	moveRight($('#slider'));
 	socket.emit('click', $('input').val());
 }
@@ -112,13 +113,13 @@ function placeBid(prizeUsername, compUsername) {
 
 function moveLeft(obj) {
 	obj.animate({
-		'marginLeft': "-=10px" //moves left
+		'marginLeft': "-=15px" //moves left
 	}, "fast");
 }
 
 function moveRight(obj) {
 	obj.animate({
-		'marginLeft': "+=10px" //moves right
+		'marginLeft': "+=15px" //moves right
 	}, "fast");
 }
 
