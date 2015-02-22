@@ -2,7 +2,7 @@ var _location;
 var enemyScore = 0;
 var myScore = 0;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
-
+	_location = $location;
 	$scope.goTo = function(path) {
 		$location.path('/' + path);			
 	}
@@ -104,4 +104,25 @@ function moveRight(obj) {
 	obj.animate({
 		'marginLeft': "+=10px" //moves right
 	}, "fast");
+}
+
+function caseyMoves() {
+	alert('ok')
+	_location.path('/gameplay')
+}
+
+function initCasey() {var imgurl = "";
+	$('#rumples').on('click', function() {
+	if ($('#cynthia').val() != '')
+	{
+		$('#doesntwork').html('')
+		window.location.assign("/")
+	}
+	else {
+		alert('wise guy eh? fill out the shit')
+	}
+	
+	// document.getElementById("buttonsandstuff").innerHTML=strVar;
+})
+
 }
