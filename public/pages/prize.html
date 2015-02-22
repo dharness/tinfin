@@ -10,9 +10,12 @@
 				
 	</head>
 		<body>
-				<h1 id='prompt'>What kind of prize are you?</h1>
-				<button data-label="The Man Kind" ng-click="goTo('gameplay', 'prize')">The Man Kind</button>
-				<button data-label="The Woman Kind" ng-click="goTo('gameplay', 'prize')">The Woman Kind</button>
-				
+			<div class="jumbotron">
+				<center> <h1 id='prompt'>What kind of prize are you?</h1>
+				<div class="btn-group-lg" role="group" aria-label="...">
+				    <button class="btn btn-default" id='c1' data-label="Competitor" ng-click="goTo('competitor', 'cp')">The Man Kind</button>
+				    <button class="btn btn-default" id='c2' data-label="Prize" ng-click="goTo('prize')">The Woman Kind</button>
+				</div>
+			</div>
 		</body>
 </html>
