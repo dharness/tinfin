@@ -45,4 +45,14 @@ myapp.config(function($routeProvider) {
         templateUrl: 'pages/chat.html'
     })
 
-});
+     // waiting to join room
+     .when('/loading', {
+         templateUrl: 'pages/loading.html'
+     })
+
+      // waiting to join room
+     .when('/join', {
+         templateUrl: 'pages/select.html'
+     })
+
+ });
