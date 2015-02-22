@@ -26,19 +26,21 @@ MongoClient.connect('mongodb://stain_db_user:bluecakes@ds031611.mongolab.com:316
 	_db = db //this is our global database object
 })
 var clients = []
-// THE SOCKET POCKET -- WELCOME ======================================
+	// THE SOCKET POCKET -- WELCOME ======================================
 
 io.on('connection', function(socket) {
 
 	console.log('a user connected');
 
-	io.on('connection', function(socket) { // do all the socket stuff
 
-		clients.push(socket);
-		if(clients.length == 1){
-			io.emit('full', 'emit')
-		}
+	socket.on('click', function(msg) {
+		console.log(msg);
 	});
+
+	clients.push(socket);
+	if (clients.length >= 1) {
+		io.emit('full', 'emit')
+	}
 
 
 });
