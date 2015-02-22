@@ -105,7 +105,19 @@ function placeBid(prizeUsername, compUsername) {
 	});
 }
 
-
+function remove(username) {
+	console.log("removing " + username)
+	var sendData = {
+		"username": username
+	};
+	$.ajax({
+		type: 'POST',
+		data: sendData,
+		url: '/remove'
+	}).done(function(response) {
+		console.log(response);
+	});
+}
 
 function moveLeft(obj) {
 	obj.animate({

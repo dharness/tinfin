@@ -49,4 +49,14 @@ module.exports = function(app) {
 			}
     	});
 	});
+
+	app.post('/remove', function(req, res) {
+		console.log("in remove");
+    	console.log(req.body);
+
+    	_db.collection('profiles').remove({username: req.body.username}, function(err, result) {
+			console.log(err + " + " + result);
+			res.send("remove successful");
+    	});
+	});
 }
