@@ -21,9 +21,9 @@ myapp.config(function($routeProvider) {
     })
 
     // about page
-    .when('/about', {
-        templateUrl: 'pages/about.html',
-        controller: 'aboutController'
+    .when('/select', {
+        templateUrl: 'pages/select.html',
+        controller: 'selectController'
     })
 
     // contact page
@@ -58,11 +58,7 @@ myapp.config(function($routeProvider) {
      .when('/loading', {
          templateUrl: 'pages/loading.html'
      })
-
-      // waiting to join room
-     .when('/select', {
-         templateUrl: 'pages/select.html'
-     })
+     
       // waiting to join room
      .when('/upload', {
          templateUrl: 'pages/upload.html'
