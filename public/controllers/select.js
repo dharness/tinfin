@@ -11,7 +11,7 @@ function joinByTitle(title) {
 }
 
 
-function addCard(title, message) {
+function addCard(title, message, bidCount) {
 
 	var strVar = "";
 	strVar += "			<div class=\"col-lg-3\" id=\"divid" + title + "\">";
@@ -21,7 +21,7 @@ function addCard(title, message) {
 	strVar += "						<center><img src=\"http:\/\/mindsparx.in\/wp-content\/uploads\/2013\/07\/Dummy-Profile-Picture.jpg\" class=\"img-responsive\" style = \"max-width:200px\">";
 	strVar += "						<p style=\"text-align:center\">" + message + "<\/p><br>";
 	strVar += "						<center><div class=\"btn-group\" role=\"group\" aria-label=\"...\">";
-	strVar += "						    <button type=\"button\" class=\"btn btn-success\" id = \"join" + title + "\"" + ">Join<\/button>";
+	strVar += "						    <button type=\"button\" class=\"btn btn-success\" id = \"join" + title + "\"" + ">Join <span class=\"badge\">" + bidCount + "<\/span> <\/button>";
 	strVar += "						    <button type=\"button\" class=\"btn btn-danger\" id = \"pass" + title + "\"" + ">Pass<\/button>";
 	strVar += "						<\/div>";
 	strVar += "			   		<\/div>";
@@ -32,6 +32,7 @@ function addCard(title, message) {
 
 	$('#join' + title).on('click', function() {
 		window.location.assign("/#/gameplay")
+		// $('#join' + title).
 	})	
 
 	$('#pass' + title).on('click', function() {
