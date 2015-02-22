@@ -6,6 +6,7 @@ myapp.controller('selectController', function($scope) {
 	// console.log(v.html())
 
 	for (var i = 0; i < bitches.length; i++) {
+		console.log(bitches[i]);
 		addCard(bitches[i].username, 'Dylan rules')
 	}
 
