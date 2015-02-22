@@ -20,12 +20,15 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 	$scope.goTo = function(path, type) {
 		if (type == 'p') {
 			profile.isPrize = true;
-			profile.username = $("input#inputUser").val()
+			profile.username = $("input#inputUser").val();
 		} else if (type == 'cp') {
 			profile.isPrize = false;
-			profile.username = $("input#inputUser").val()
+			profile.username = $("input#inputUser").val();
 		}
-
+		if (type == 'dsc') {
+			profile.desc = $("#profileDescription").val();
+			//upload(profile.desc);
+		}
 		$location.path('/' + path)
 	}
 
@@ -57,10 +60,7 @@ function sendMessage() {
 }
 
 function upload() { // uploads the session's current profile object
-
-
-	console.log(profile);
-
+	console.log(profile.desc);
 	$.ajax({
 		type: 'POST',
 		data: profile,
@@ -127,15 +127,14 @@ function initCasey() {
 	$('#rumples').on('click', function() {
 		if ($('#cynthia').val() != '') {
 			$('#doesntwork').html('')
-			window.location.assign("/")
 			profile.picture = $('#cynthia').val();
+			window.location.assign("#/prize")
+			$("#photoupload").attr('disabled', 'disabled');
 
 
 		} else {
-			alert('wise guy eh? fill out the shit')
+			alert('Wise guy eh? Fill out the shit')
 		}
-
-		// document.getElementById("buttonsandstuff").innerHTML=strVar;
 	})
 
 }

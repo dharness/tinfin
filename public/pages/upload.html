@@ -1,44 +1,37 @@
-<html id='doesntwork'>
-<head>
+<html id='doesntwork' >
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link href='http://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+	</head>
 
-<script type="text/javascript">
-tinypic_layout = 'wide';
-tinypic_type = 'images';
-tinypic_links = 'url';
-tinypic_language = 'en';
-tinypic_search = 'false';
-tinypic_autoload = true;
-
-</script>
-<script type="text/javascript">
-function init() {
-	hideTinypicPlugin();
-	document.getElementById("tinyurl").onclick = btnasdf;
-}
-
-window.btnasdf = function() {
-	showTinypicPlugin();
-	
-	// var strVar="";
-	// strVar += "<form>";
-	// strVar += "	Please copy the above URL into the text box: <input type = \"text\" name = \"url\">";
-	// strVar += "		<button id = \"rumples\">Continue<\/button>";
-	// strVar += "	<\/form>";
-
-		document.getElementById("buttonsandstuff").innerHTML=strVar;
-}
-
-initCasey();
-
-</script>
-</head>
-
-<body onload = "init()">
-	<div id = "buttonsandstuff">
-	<button id = "tinyurl" onclick="window.btnasdf()">Upload Photo</button>
-	<div id="url"></div>
-	</div>
-<input type = "text" id='cynthia'/>
-	<button id = "rumples">Continue</button>
-</body>
+	<body >
+		<!-- <img src="http://www.clickhdwallpapers.com/wp-content/uploads/2015/01/space_wallpapers_Background_1080p.jpg" class="bg img-responsive" style="z-index:0;"> -->
+		<div class="container">
+			<div class="jumbotron" style="opacity:0.9; margin-top:10px; border-radius:10px;">
+				<center>
+				<h2 id='picprompt'>Please copy the above URL into the text box</h2>
+				<form class = 'form-inline'>
+					<div class = 'form-group'>
+						<input type = "url" class = "form-control" id = "cynthia" placeholder = "URL">
+					</div>
+					<button class="btn btn-info" id='rumples' data-label="Continue">Continue</button>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript">
+			tinypic_layout = 'narrow';
+			tinypic_type = 'images';
+			tinypic_links = 'url';
+			tinypic_language = 'en';
+			tinypic_search = 'false';
+			tinypic_autoload = true;
+		</script>
+		
+		<script type="text/javascript">
+			initCasey();
+			showTinypicPlugin();
+		</script>
+	</body>
 </html>

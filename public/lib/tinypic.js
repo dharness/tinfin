@@ -1,3 +1,4 @@
+
 function showTinypicPlugin() {
 	var el = document.getElementById('tinypic_plugin_' + id);
 	el.style.display = '';
@@ -50,4 +51,4 @@ function hideTinypicPlugin() {
 }
 
 var id = 50
-document.write("<iframe id = 'tinypic_plugin_" + id + "' frameborder = '0' style = 'display:none;' scrolling='no'></iframe><br/>");
+document.write("<center><iframe id = 'tinypic_plugin_" + id + "' frameborder = '0' style = 'display:none; z-index:10; opacity:0.9; ' scrolling='no' ></iframe><br/>");
