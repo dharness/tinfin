@@ -25,6 +25,8 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 			getBitches();
 		}
 
+
+
 		console.log(bitches);
 	}
 });
@@ -69,7 +71,8 @@ function getBitches() { // displays entire contents of database
 		type: 'GET',
 		url: '/database'
 	}).done(function(response) {
-		console.log(response);
+		console.log(response);	
+		bitches = response;
 	});
 }
 
@@ -79,7 +82,8 @@ function placeBid(prizeUsername) {
 		data: prizeUsername,
 		url: '/placeBid'
 	}).done(function(response) {
-		bitches = response;
+		console.log(response);
+		
 	});
 }
 
