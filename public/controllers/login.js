@@ -5,12 +5,27 @@ var myScore = 0;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
 	_http = $http;
 
+	$scope.setIsPrize = function(prize) {	// prize is either true or false	
+		profile.isPrize = prize;
+
+		console.log(profile);
+	}
+
+	$scope.setGender = function(genderType) {	
+		profile.gender = genderType;
+upload();
+		console.log(profile);
+	}
+
+
 	$scope.goTo = function(path, type) {
 
 		if (type == 'p') {
 			profile.isPrize = true;
+			profile.username = $("input#inputUser").val()
 		} else if (type == 'cp') {
 			profile.isPrize = false;
+			profile.username = $("input#inputUser").val()
 		}
 
 
@@ -18,19 +33,6 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 	}
 
 
-
-	$scope.setIsPrize = function(prize) { // prize is either true or false	
-		profile.isPrize = prize;
-
-		console.log(profile);
-	}
-
-	$scope.setGender = function(genderType) {
-		profile.gender = genderType;
-
-		upload();
-		getBitches();
-	}
 });
 
 socket = io.connect();
