@@ -6,6 +6,7 @@ profile = {
     "gender": "",
     "bidCount": ""
 };
+bitches = null;
 
 // configure our routes
 myapp.config(function($routeProvider) {
