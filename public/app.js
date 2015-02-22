@@ -51,7 +51,7 @@ myapp.config(function($routeProvider) {
      })
 
       // waiting to join room
-     .when('/join', {
+     .when('/select', {
          templateUrl: 'pages/select.html'
      })
 
