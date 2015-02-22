@@ -6,22 +6,18 @@ myapp.controller('selectController', function($scope, $location) {
 
 });
 
-function joinByTitle(title) {
-	alert(window.title)
-}
 
-
-function addCard(title, message, bidCount) {
+function addCard(title, message, bidCount, img) {
 
 	var strVar = "";
 	strVar += "			<div class=\"col-lg-3\" id=\"divid" + title + "\">";
 	strVar += "				<div class=\"panel panel-default\" style=\"border-radius:5px;\">";
 	strVar += "				    <div class=\"panel-heading\" id='title'>" + title + "<\/div>";
 	strVar += "			   		<div class=\"panel-body\">";
-	strVar += "						<center><img src=\"http:\/\/mindsparx.in\/wp-content\/uploads\/2013\/07\/Dummy-Profile-Picture.jpg\" class=\"img-responsive\" style = \"max-width:200px\">";
+	strVar += "						<center><img src=\"" + img + "\" class=\"img-responsive\" style = \"max-width:200px\" alt = " + "\"http:\/\/mindsparx.in\/wp-content\/uploads\/2013\/07\/Dummy-Profile-Picture.jpg\"" + ">";
 	strVar += "						<p style=\"text-align:center\">" + message + "<\/p><br>";
 	strVar += "						<center><div class=\"btn-group\" role=\"group\" aria-label=\"...\">";
-	strVar += "						    <button type=\"button\" class=\"btn btn-success\" id = \"join" + title + "\"" + ">Join <span class=\"badge\" >" + bidCount + "<\/span> <\/button>";
+	strVar += "						    <button type=\"button\" class=\"btn btn-success\" id = \"join" + title + "\"" + ">Join <span class=\"badge\" id = \"sp" + title + "\"" + ">" + bidCount + "<\/span> <\/button>";
 	strVar += "						    <button type=\"button\" class=\"btn btn-danger\" id = \"pass" + title + "\"" + ">Pass<\/button>";
 	strVar += "						<\/div>";
 	strVar += "			   		<\/div>";
@@ -31,8 +27,14 @@ function addCard(title, message, bidCount) {
 	$("#select").prepend(strVar);
 
 	$('#join' + title).on('click', function() {
-		window.location.assign("/#/gameplay")
-	})	
+		socket.emit('joinRoom', title);
+		var v = 0;
+		v += $('#sp' + title).html();
+		parseInt(v);
+		console.log(v++)
+		$('#sp' + title).html(v++)
+		placeBid(title, profile.username);
+	})
 
 	$('#pass' + title).on('click', function() {
 		$('#divid' + title).empty();
