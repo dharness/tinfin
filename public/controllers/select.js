@@ -31,8 +31,8 @@ function addCard(title, message, bidCount, img) {
 		var v = 0;
 		v += $('#sp' + title).html();
 		parseInt(v);
-		console.log(v++)
-		$('#sp' + title).html(v++)
+		console.log(v++);
+		$('#sp' + title).html(v++);
 		placeBid(title, profile.username);
 	})
 

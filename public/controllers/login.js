@@ -45,18 +45,30 @@ window.session.addClient(socket);
 
 // listen for a click signal and update the score
 socket.on('click', function(msg) {
-	$('#enemyScore').html(++enemyScore);
+	$('#enemyScore').html("<h2>" + (++enemyScore) + "<\/h2");
 	moveLeft($('#slider'));
+
+	if(enemyScore >= 100){
+	alert('You Lose');
+	window.location.assign('/')
+}
 });
 
-socket.on('findSelf', function(msg) {
-	window.session.id = msg;
+socket.on('game', function(msg) {
+	alert('carrot')
+	window.location.assign('/gameplay')
 });
 
 function sendMessage() {
-	$('#myScore').html(++myScore);
+	var s = ++myScore;
+	$('#myScore').html("<h2>" + s + "<\/h2");
 	moveRight($('#slider'));
 	socket.emit('click', $('input').val());
+
+	if(myScore >= 100){
+	alert('You Win');
+	window.location.assign('/#/mur')
+}
 }
 
 function upload() { // uploads the session's current profile object
@@ -103,6 +115,7 @@ function placeBid(prizeUsername, compUsername) {
 		if (parseInt(response.bidCount) == 1) {
 			// start a game
 			alert('Starting a game')
+			socket.emit('game', 'carroys');
 			window.location.assign('/#/gameplay')
 		}
 	});
@@ -124,13 +137,13 @@ function remove(username) {
 
 function moveLeft(obj) {
 	obj.animate({
-		'marginLeft': "-=10px" //moves left
+		'marginLeft': "-=15px" //moves left
 	}, "fast");
 }
 
 function moveRight(obj) {
 	obj.animate({
-		'marginLeft': "+=10px" //moves right
+		'marginLeft': "+=15px" //moves right
 	}, "fast");
 }
 
