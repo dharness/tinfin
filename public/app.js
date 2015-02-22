@@ -2,6 +2,7 @@ var myapp = angular.module('myapp', ['ngRoute', 'ngAnimate']);
 profile = {
     "username": "",
     "picture": "",
+    "desc": "",
     "isPrize": "",
     "gender": "",
     "bidCount": 0,
@@ -59,7 +60,7 @@ myapp.config(function($routeProvider) {
          templateUrl: 'pages/loading.html'
      })
      
-      // waiting to join room
+      // photo upload
      .when('/upload', {
          templateUrl: 'pages/upload.html'
      })

@@ -11,10 +11,25 @@
 	<body>
 		<img style = "width:100%; height:auto; position:fixed; top:0; left:0;" src="http://nafilmu.cz/wp-content/uploads/2014/07/8589130497987-emmy-awards-trophy-wallpaper-hd.jpg" class="img-responsive">
 		<div class="jumbotron container" style="opacity:0.9; margin-top:300px; border-radius:10px;">
-			<center> <h1 id='prompt'> What kind of prize are you? </h1>
+			
+			<center><h2 id='descprop'>Please enter a short description for yourself</h2>
+			<div class = 'form-horizontal'>
+				<div class ='form-group'>
+					<div class = 'col-md-6 col-md-offset-3'>
+						<textarea class = "form-control input-lg" id = "profileDescription" rows = "3" placeholder = "Description"></textarea>
+					</div>
+				</div>
+			</div>
+			<center><h2 id='descprop'>Please upload a profile picture</h2>
 			<div class="btn-group-lg" role="group" aria-label="...">
-			    <button class="btn btn-info" id='c1' data-label="Competitor" ng-click="goTo('loading'); setGender('male')">The Man Kind</button>
-			    <button class="btn btn-info" id='c2' data-label="Prize" ng-click="goTo('loading'); setGender('female')">The Woman Kind</button>
+			    <button class="btn btn-info" id='photoupload' data-label="photoupload" ng-click="goTo('upload')">Upload</button>
+					</div>
+					<center> <h2 id='prompt'> What kind of prize are you? </h2>
+			<div class="btn-group-lg" role="group" aria-label="...">
+			    <button class="btn btn-info" id='c1' data-label="Competitor" ng-click="goTo('loading', 'dsc'); setGender('male')">The Man Kind</button>
+			    <button class="btn btn-info" id='c2' data-label="Prize" ng-click="goTo('loading', 'dsc'); setGender('female')">The Woman Kind</button>
+			</div>
+				</div>
 			</div>
 		</div>
 	</body>
