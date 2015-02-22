@@ -4,7 +4,8 @@ profile = {
     "picture": "",
     "isPrize": "",
     "gender": "",
-    "bidCount": "0"
+    "bidCount": 0,
+    "bidders": "[]"
 };
 bitches = null;
 

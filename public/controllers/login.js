@@ -11,6 +11,8 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 		profile.isPrize = prize;
 
 		console.log(profile);
+
+		placeBid("username1", "douchenugget");
 	}
 
 	$scope.setGender = function(genderType) {	
@@ -19,14 +21,9 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 		console.log(profile);
 
 		// the following code should be moved to whichever option is called last
-		if (profile.isPrize == "true") {
-			upload();
-		} else {
-			getBitches();
-		}
-
-
-
+		upload();
+		getBitches();
+		
 		console.log(bitches);
 	}
 });
@@ -76,9 +73,10 @@ function getBitches() { // displays entire contents of database
 	});
 }
 
-function placeBid(prizeUsername) {
+function placeBid(prizeUsername, compUsername) {
 	var sendData = {
-		username: prizeUsername
+		"prizeUsername": prizeUsername,
+		"compUsername": compUsername
 	};
 	$.ajax({
 		type: 'POST',
