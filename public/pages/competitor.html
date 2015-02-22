@@ -10,11 +10,12 @@
 				
 	</head>
 		<body>
-			<div class="jumbotron">
-				<center> <h1 id='prompt'>What kind of prize would you like? </h1>
+			<img style = "width:100%; height:auto; position:fixed; top:0; left:0;" src="http://www.hdwallpaperscool.com/wp-content/uploads/2014/08/the-dark-knight-hd-desktop-wallpapers-free-movie-images-full.jpg" class="img-responsive">
+			<div class="jumbotron container" style="opacity:0.9; margin-top:300px; border-radius:10px;">
+				<center> <h1 id='prompt' style="color:;">What are you Competing for? </h1>
 				<div class="btn-group-lg" role="group" aria-label="...">
-				    <button class="btn btn-default" id='c1' data-label="Competitor" ng-click="goTo('competitor', 'cp')">The Man Kind</button>
-				    <button class="btn btn-default" id='c2' data-label="Prize" ng-click="goTo('prize')">The Woman Kind</button>
+				    <button class="btn btn-info" id='c1' data-label="Competitor" ng-click="goTo('gameplay', 'comp')">The Man Kind</button>
+				    <button class="btn btn-info" id='c2' data-label="Prize" ng-click="goTo('gameplay', 'comp')">The Woman Kind</button>
 				</div>
 			</div>
 		</body>
