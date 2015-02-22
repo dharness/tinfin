@@ -47,7 +47,7 @@ io.on('connection', function(socket) {
 
 		var clients_in_the_room = io.sockets.adapter.rooms[msg];
 
-		socket.emit('updateJoin', msg);
+		socket.emit('updateJoin', clients_in_the_room.length);
 
 		for (var clientId in clients_in_the_room) {
 			console.log('client: %s', clientId); 

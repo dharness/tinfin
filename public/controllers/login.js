@@ -81,7 +81,7 @@ function getBitches() { // displays entire contents of database
 
 		for (var i = 0; i < bitches.length; i++) {
 			if (bitches[i].isPrize == 'true') {
-				addCard(bitches[i].username, 'Dylan rules')
+				addCard(bitches[i].username, 'Dylan rules', bitches[i].bidCount);
 			}
 		}
 
@@ -93,14 +93,17 @@ function placeBid(prizeUsername, compUsername) {
 		"prizeUsername": prizeUsername,
 		"compUsername": compUsername
 	};
+
 	$.ajax({
 		type: 'POST',
 		data: sendData,
 		url: '/placeBid'
 	}).done(function(response) {
 		console.log(response);
-		if (parseInt(response.bidCount) == 2) {
+		if (parseInt(response.bidCount) == 1) {
 			// start a game
+			alert('Starting a game')
+			window.location.assign('/#/gameplay')
 		}
 	});
 }
