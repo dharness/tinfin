@@ -24,6 +24,8 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 		} else {
 			getBitches();
 		}
+
+		console.log(bitches);
 	}
 });
 
@@ -77,10 +79,9 @@ function placeBid(prizeUsername) {
 		data: prizeUsername,
 		url: '/placeBid'
 	}).done(function(response) {
-		console.log(response);
+		bitches = response;
 	});
 }
-
 
 function moveLeft(obj) {
 	obj.animate({
