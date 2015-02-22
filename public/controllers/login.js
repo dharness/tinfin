@@ -5,15 +5,15 @@ var myScore = 0;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
 	_http = $http;
 
-	$scope.setIsPrize = function(prize) {	// prize is either true or false	
+	$scope.setIsPrize = function(prize) { // prize is either true or false	
 		profile.isPrize = prize;
 
 		console.log(profile);
 	}
 
-	$scope.setGender = function(genderType) {	
+	$scope.setGender = function(genderType) {
 		profile.gender = genderType;
-upload();
+		upload();
 		console.log(profile);
 	}
 
@@ -75,12 +75,19 @@ function upload() { // uploads the session's current profile object
 }
 
 function getBitches() { // displays entire contents of database
+
 	$.ajax({
 		type: 'GET',
 		url: '/database'
 	}).done(function(response) {
 		console.log(response);
 		bitches = response;
+
+		for (var i = 0; i < bitches.length; i++) {
+			if (bitches[i].isPrize == 'true') {
+				addCard(bitches[i].username, 'Dylan rules')
+			}
+		}
 
 	});
 }
