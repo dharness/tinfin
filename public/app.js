@@ -4,7 +4,7 @@ profile = {
     "picture": "",
     "isPrize": "",
     "gender": "",
-    "bidCount": ""
+    "bidCount": "0"
 };
 bitches = null;
 
@@ -61,6 +61,10 @@ myapp.config(function($routeProvider) {
       // waiting to join room
      .when('/select', {
          templateUrl: 'pages/select.html'
+     })
+      // waiting to join room
+     .when('/upload', {
+         templateUrl: 'pages/upload.html'
      })
 
  });

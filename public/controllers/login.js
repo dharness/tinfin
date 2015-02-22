@@ -2,7 +2,7 @@ var _location;
 var enemyScore = 0;
 var myScore = 0;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
-
+	_location = $location;
 	$scope.goTo = function(path) {
 		$location.path('/' + path);			
 	}
@@ -18,12 +18,14 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 
 		console.log(profile);
 
-		// the following code should be moved else where
+		// the following code should be moved to whichever option is called last
 		if (profile.isPrize == "true") {
 			upload();
 		} else {
 			getBitches();
 		}
+
+
 
 		console.log(bitches);
 	}
@@ -69,17 +71,24 @@ function getBitches() { // displays entire contents of database
 		type: 'GET',
 		url: '/database'
 	}).done(function(response) {
-		console.log(response);
+		console.log(response);	
+		bitches = response;
 	});
 }
 
 function placeBid(prizeUsername) {
+	var sendData = {
+		username: prizeUsername
+	};
 	$.ajax({
 		type: 'POST',
-		data: prizeUsername,
+		data: sendData,
 		url: '/placeBid'
 	}).done(function(response) {
-		bitches = response;
+		console.log(response);
+		if (parseInt(response.bidCount) == 2) {
+			// start a game
+		}
 	});
 }
 
@@ -93,4 +102,25 @@ function moveRight(obj) {
 	obj.animate({
 		'marginLeft': "+=10px" //moves right
 	}, "fast");
+}
+
+function caseyMoves() {
+	alert('ok')
+	_location.path('/gameplay')
+}
+
+function initCasey() {var imgurl = "";
+	$('#rumples').on('click', function() {
+	if ($('#cynthia').val() != '')
+	{
+		$('#doesntwork').html('')
+		window.location.assign("/")
+	}
+	else {
+		alert('wise guy eh? fill out the shit')
+	}
+	
+	// document.getElementById("buttonsandstuff").innerHTML=strVar;
+})
+
 }
