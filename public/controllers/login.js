@@ -1,33 +1,35 @@
 var _location;
+var _http;
 var enemyScore = 0;
 var myScore = 0;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
-	_location = $location;
-	$scope.goTo = function(path) {
-		$location.path('/' + path);			
+	_http = $http;
+
+	$scope.goTo = function(path, type) {
+
+		if (type == 'p') {
+			profile.isPrize = true;
+		} else if (type == 'cp') {
+			profile.isPrize = false;
+		}
+
+
+		$location.path('/' + path)
 	}
 
-	$scope.setIsPrize = function(prize) {	// prize is either true or false	
+
+
+	$scope.setIsPrize = function(prize) { // prize is either true or false	
 		profile.isPrize = prize;
 
 		console.log(profile);
 	}
 
-	$scope.setGender = function(genderType) {	
+	$scope.setGender = function(genderType) {
 		profile.gender = genderType;
 
-		console.log(profile);
-
-		// the following code should be moved to whichever option is called last
-		if (profile.isPrize == "true") {
-			upload();
-		} else {
-			getBitches();
-		}
-
-
-
-		console.log(bitches);
+		upload();
+		getBitches();
 	}
 });
 
@@ -57,6 +59,10 @@ function sendMessage() {
 }
 
 function upload() { // uploads the session's current profile object
+
+
+	console.log(profile);
+
 	$.ajax({
 		type: 'POST',
 		data: profile,
@@ -71,8 +77,9 @@ function getBitches() { // displays entire contents of database
 		type: 'GET',
 		url: '/database'
 	}).done(function(response) {
-		console.log(response);	
+		console.log(response);
 		bitches = response;
+
 	});
 }
 
@@ -92,6 +99,8 @@ function placeBid(prizeUsername) {
 	});
 }
 
+
+
 function moveLeft(obj) {
 	obj.animate({
 		'marginLeft': "-=10px" //moves left
@@ -104,23 +113,20 @@ function moveRight(obj) {
 	}, "fast");
 }
 
-function caseyMoves() {
-	alert('ok')
-	_location.path('/gameplay')
-}
+function initCasey() {
 
-function initCasey() {var imgurl = "";
 	$('#rumples').on('click', function() {
-	if ($('#cynthia').val() != '')
-	{
-		$('#doesntwork').html('')
-		window.location.assign("/")
-	}
-	else {
-		alert('wise guy eh? fill out the shit')
-	}
-	
-	// document.getElementById("buttonsandstuff").innerHTML=strVar;
-})
+		if ($('#cynthia').val() != '') {
+			$('#doesntwork').html('')
+			window.location.assign("/")
+			profile.picture = $('#cynthia').val();
+
+
+		} else {
+			alert('wise guy eh? fill out the shit')
+		}
+
+		// document.getElementById("buttonsandstuff").innerHTML=strVar;
+	})
 
 }
