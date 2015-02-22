@@ -3,7 +3,14 @@ var enemyScore = 0;
 var myScore = 0;
 myapp.controller('loginController', function($scope, $http, $location, $rootScope) {
 
-	$scope.goTo = function(path) {
+	$scope.goTo = function(path, type) {
+
+		if (type == 'p') {
+			$http.post('/addWoman', {username:'hellen'}).
+			success(function(data, status, headers, config) {
+			});
+		}
+
 		if (path == 'gameplay') {
 			window.location.assign('clickme/clickmebitch.html');
 		} else {
@@ -36,8 +43,6 @@ function sendMessage() {
 	moveRight($('#slider'));
 	socket.emit('click', $('input').val());
 }
-
-
 
 function moveLeft(obj) {
 	obj.animate({
