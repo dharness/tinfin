@@ -11,8 +11,6 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 		profile.isPrize = prize;
 
 		console.log(profile);
-
-		placeBid('username1');
 	}
 
 	$scope.setGender = function(genderType) {	
