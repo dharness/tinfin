@@ -45,7 +45,7 @@ window.session.addClient(socket);
 
 // listen for a click signal and update the score
 socket.on('click', function(msg) {
-	$('#enemyScore').html(++enemyScore);
+	$('#enemyScore').html("<h2>" + (++enemyScore) + "<\/h2");
 	moveLeft($('#slider'));
 });
 
