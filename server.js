@@ -42,6 +42,19 @@ io.on('connection', function(socket) {
 		console.log(msg + ' has left');
 	});
 
+	socket.on('joinRoom', function(msg) {
+		socket.join(msg);
+
+		var clients_in_the_room = io.sockets.adapter.rooms[msg];
+
+		socket.emit('updateJoin', msg);
+
+		for (var clientId in clients_in_the_room) {
+			console.log('client: %s', clientId); 
+			var client_socket = io.sockets.connected[clientId];
+		}
+	});
+
 	clients.push(socket);
 	if (clients.length >= 1) {
 		io.emit('full', 'emit')

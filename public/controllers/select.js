@@ -31,8 +31,13 @@ function addCard(title, message) {
 	$("#select").prepend(strVar);
 
 	$('#join' + title).on('click', function() {
-		window.location.assign("/#/gameplay")
-	})	
+		socket.emit('joinRoom', title);
+	})
+
+	socket.on('updateJoin', function(msg) {
+		alert(msg);
+		alert($('join' + msg) );
+	})
 
 	$('#pass' + title).on('click', function() {
 		$('#divid' + title).empty();
