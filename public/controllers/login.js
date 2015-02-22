@@ -9,13 +9,13 @@ myapp.controller('loginController', function($scope, $http, $location, $rootScop
 
 	$scope.setIsPrize = function(prize) {	// prize is either true or false	
 		profile.isPrize = prize;
-
+		profile.username = $("input#inputUser").val()
 		console.log(profile);
 	}
 
 	$scope.setGender = function(genderType) {	
 		profile.gender = genderType;
-
+		profile.username = $("input#inputUser").val()
 		console.log(profile);
 
 		// the following code should be moved to whichever option is called last
