@@ -54,8 +54,9 @@ socket.on('click', function(msg) {
 }
 });
 
-socket.on('findSelf', function(msg) {
-	window.session.id = msg;
+socket.on('game', function(msg) {
+	alert('carrot')
+	window.location.assign('/gameplay')
 });
 
 function sendMessage() {
@@ -114,6 +115,7 @@ function placeBid(prizeUsername, compUsername) {
 		if (parseInt(response.bidCount) == 1) {
 			// start a game
 			alert('Starting a game')
+			socket.emit('game', 'carroys');
 			window.location.assign('/#/gameplay')
 		}
 	});
